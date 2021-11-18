@@ -8,9 +8,10 @@ public final class App {
 
     /**
      * Java: 1) Write a function that returns true if a string consists of ascending
-     * or ascending AND consecutive numbers.
+     * AND consecutive numbers.
      * 
-     * @param args
+     * @param toCheck - the string that is to checked if it is ascending or not.
+     * @return - return true if ascending, else returns false.
      */
     public static boolean ascending(String toCheck) {
         int current = -1;
@@ -42,11 +43,18 @@ public final class App {
         return false;
     }
 
-    public static void squarePatch(int n) {
+    /**
+     * Create a function that takes an integer and outputs an n x n square solely
+     * consisting of the integer n.
+     * 
+     * @param n - the param that is going to be used to create the square.
+     */
+    public static Integer[][] squarePatch(int n) {
+        Integer[][] theArray = new Integer[n][n];
         if (n == 0) {
             System.out.println("[]");
         } else {
-            Integer[][] theArray = new Integer[n][n];
+
             StringBuilder sb = new StringBuilder();
             for (Integer[] row : theArray)
                 Arrays.setAll(row, i -> n);
@@ -63,29 +71,20 @@ public final class App {
             sb.append("\n]\n");
             System.out.println(sb.toString());
         }
+        return theArray;
     }
 
     /**
-     * Java Clash of Code...
-     */
-    public static int queensAttack() {
-        return 0;
-    }
-
-    /**
-     * Says hello to the world.
-     * 
-     * @param args The arguments of the program.
+     * The main method for the program.
      */
     public static void main(String[] args) {
         System.out.println(ascending("232425"));
         System.out.println(ascending("2324256"));
         System.out.println(ascending("56789"));
         System.out.println(ascending("444445"));
-        squarePatch(5);
-        squarePatch(1);
-        squarePatch(0);
-        queensAttack();
+        System.out.println(squarePatch(5));
+        System.out.println(squarePatch(1));
+        System.out.println(squarePatch(0));
         System.out.println("Hello World!");
     }
 }
